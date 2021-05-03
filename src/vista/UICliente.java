@@ -222,14 +222,27 @@ public class UICliente extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "No se creo el cliente");
                 }
             } else {
-                Cliente objc = new Cliente(id, nom1, ape1, correo, tel);
-                ControllerCliente objcc = new ControllerCliente();
-                boolean t = objcc.insertCliente(objc);
+                if (!correo.equals("") && !tel.equals("")) {
+                    Cliente objc = new Cliente(id, nom1, ape1, correo, tel);
+                    ControllerCliente objcc = new ControllerCliente();
+                    boolean t = objcc.insertCliente(objc);
 
-                if (t) {
-                    JOptionPane.showMessageDialog(null, "Se creo el cliente");
-                } else {
-                    JOptionPane.showMessageDialog(null, "No se creo el cliente");
+                    if (t) {
+                        JOptionPane.showMessageDialog(null, "Se creo el cliente");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se creo el cliente");
+                    }
+                }else{
+//                    JOptionPane.showMessageDialog(null, "en el del tel y correo");
+                    Cliente objc = new Cliente(id, nom1, ape1);
+                    ControllerCliente objcc = new ControllerCliente();
+                    boolean t = objcc.insertCliente(objc);
+
+                    if (t) {
+                        JOptionPane.showMessageDialog(null, "Se creo el cliente");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se creo el cliente");
+                    }
                 }
             }
         } else {

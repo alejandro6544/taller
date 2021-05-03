@@ -17,9 +17,8 @@ public class ControllerCliente {
     public boolean insertCliente(Cliente objc) {
         boolean t = false;
         String sql = "";
-        
-        
-        if (objc.getNombre2cliente()!=null && objc.getApellido2cliente()!=null) {
+
+        if (objc.getNombre2cliente() != null && objc.getApellido2cliente() != null) {
             sql = "insert into clientes(idcliente, nombre1cliente, nombre2cliente, apellido1cliente, apellido2cliente, correoelectronico, telefonocliente) "
                     + "value('" + objc.getIdcliente() + "', '" + objc.getNombre1cliente() + "', '" + objc.getNombre2cliente() + "',"
                     + " '" + objc.getApellido1cliente() + "', '" + objc.getApellido2cliente() + "', '" + objc.getCorreoelectronico() + "',"
@@ -27,11 +26,18 @@ public class ControllerCliente {
             BaseDatos objbd = new BaseDatos();
             t = objbd.ejecutarSQL(sql);
         } else {
-            sql = "insert into clientes(idcliente, nombre1cliente, apellido1cliente, correoelectronico, telefonocliente) "
-                    + "value('" + objc.getIdcliente() + "', '" + objc.getNombre1cliente() + "', '" + objc.getApellido1cliente() + "', '" + 
-                    objc.getCorreoelectronico() + "', '" + objc.getTelefonocliente() + "');";
-            BaseDatos objbd = new BaseDatos();
-            t = objbd.ejecutarSQL(sql);
+            if (objc.getCorreoelectronico() != null && objc.getTelefonocliente() != null) {
+                sql = "insert into clientes(idcliente, nombre1cliente, apellido1cliente, correoelectronico, telefonocliente) "
+                        + "value('" + objc.getIdcliente() + "', '" + objc.getNombre1cliente() + "', '" + objc.getApellido1cliente() + "', '"
+                        + objc.getCorreoelectronico() + "', '" + objc.getTelefonocliente() + "');";
+                BaseDatos objbd = new BaseDatos();
+                t = objbd.ejecutarSQL(sql);
+            } else {
+                sql = "insert into clientes(idcliente, nombre1cliente, apellido1cliente) "
+                        + "value('" + objc.getIdcliente() + "', '" + objc.getNombre1cliente() + "', '" + objc.getApellido1cliente() + "');";
+                BaseDatos objbd = new BaseDatos();
+                t = objbd.ejecutarSQL(sql);
+            }
         }
         return t;
     }
