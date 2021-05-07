@@ -113,7 +113,7 @@ public class Administrador {
                     nomadmin = rs.getString("nombreadmin");
                     nomc = rs.getString("passwadmin");
                    
-                    a=new Administrador(ida,nomadmin, nomc);
+                    a=new Administrador(ida, nomadmin, nomc);
                     
                 }
             } catch (SQLException ex) {

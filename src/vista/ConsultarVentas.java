@@ -8,6 +8,7 @@ package vista;
 import control.ControllerCliente;
 import control.ControllerConceptoVenta;
 import control.ControllerVenta;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,6 +16,7 @@ import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Cliente;
@@ -41,6 +43,12 @@ public class ConsultarVentas extends javax.swing.JFrame {
     String fecha2;
     String nombreCliente;
     String nombreConcepto;
+    String year1;
+    String month1;
+    String day1;
+    String year2;
+    String month2;
+    String day2;
 
     public ConsultarVentas() {
         initComponents();
@@ -156,6 +164,11 @@ public class ConsultarVentas extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jButton3.setText("Cancelar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("File");
 
@@ -222,13 +235,13 @@ public class ConsultarVentas extends javax.swing.JFrame {
         Calendar fechaInicial1 = jDateChooser1.getCalendar();
         Calendar fechaFin1 = jDateChooser2.getCalendar();
 
-        String year1 = String.valueOf(fechaInicial1.get(Calendar.YEAR));
-        String month1 = String.valueOf(fechaInicial1.get(Calendar.MONTH) + 1);
-        String day1 = String.valueOf(fechaInicial1.get(Calendar.DAY_OF_MONTH));
+        year1 = String.valueOf(fechaInicial1.get(Calendar.YEAR));
+        month1 = String.valueOf(fechaInicial1.get(Calendar.MONTH) + 1);
+        day1 = String.valueOf(fechaInicial1.get(Calendar.DAY_OF_MONTH));
 
-        String year2 = String.valueOf(fechaFin1.get(Calendar.YEAR));
-        String month2 = String.valueOf(fechaFin1.get(Calendar.MONTH) + 1);
-        String day2 = String.valueOf(fechaFin1.get(Calendar.DAY_OF_MONTH));
+        year2 = String.valueOf(fechaFin1.get(Calendar.YEAR));
+        month2 = String.valueOf(fechaFin1.get(Calendar.MONTH) + 1);
+        day2 = String.valueOf(fechaFin1.get(Calendar.DAY_OF_MONTH));
 
         fecha1 = year1 + "-" + month1 + "-" + day1;//+" 00:00:00"
         fecha2 = year2 + "-" + month2 + "-" + day2;//+" 00:00:00"
@@ -284,6 +297,20 @@ public class ConsultarVentas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+
+        //
+        String ruta = "";
+        JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int seleccion = fc.showOpenDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File fichero = fc.getSelectedFile();
+            ruta = fichero.getAbsolutePath();
+            ruta += "\\";
+            //System.out.println("ruta " + fichero.getAbsolutePath());
+        }
+        //
+
         String[] columnname = {"FECHA Y HORA", "NOMBRE CLIENTE", "DOCUMENTO", "CONCEPTO VENTA", "DESCRIPCION", "MEDIDA", "CAN.", "ENTRADA"};
 
         ///
@@ -357,7 +384,7 @@ public class ConsultarVentas extends javax.swing.JFrame {
             }
 
         }
-        String path = "archivoEx.xlsx";
+        String path = ruta + "archivoMes_" + month2 + ".xlsx";
         FileOutputStream outFile = null;
         try {
             outFile = new FileOutputStream(path);
@@ -372,6 +399,10 @@ public class ConsultarVentas extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

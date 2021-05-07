@@ -124,6 +124,7 @@ public class Login extends javax.swing.JFrame {
             char pas = pass[i];
             pass1 += pas;
         }
+        
         ControlAdministrador objca = new ControlAdministrador();
         boolean t = objca.buscarAdmin(nombre, pass1);
         if (t) {
