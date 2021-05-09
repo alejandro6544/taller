@@ -202,13 +202,31 @@ public class Cliente {
                 while (rs.next()) {
                     idp = rs.getString("idcliente");
                     nomp1 = rs.getString("nombre1cliente");
-                    nomp2 = rs.getString("nombre2cliente");
+                    if (rs.getString("nombre2cliente") != null) {
+                        nomp2 = rs.getString("nombre2cliente");
+                    } else {
+                        nomp2 = null;
+                    }
+
                     ap1 = rs.getString("apellido1cliente");
-                    ap2 = rs.getString("apellido2cliente");
-                    correo= rs.getString("correoelectronico");
-                    tel = rs.getString("telefonocliente");
                     
-                    c=new Cliente(idp, nomp1, nomp2, ap1, ap2, correo, tel);
+                    if (rs.getString("apellido2cliente") != null) {
+                        ap2 = rs.getString("apellido2cliente");
+                    } else {
+                        ap2 = null;
+                    }
+                    if (rs.getString("correoelectronico") != null) {
+                        correo = rs.getString("correoelectronico");
+                    } else {
+                        correo = null;
+                    }
+                    if (rs.getString("telefonocliente") != null) {
+                        tel = rs.getString("telefonocliente");
+                    } else {
+                        tel = null;
+                    }
+
+                    c = new Cliente(idp, nomp1, nomp2, ap1, ap2, correo, tel);
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -216,5 +234,6 @@ public class Cliente {
         }
         return c;
     }
+
 
 }

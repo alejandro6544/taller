@@ -21,7 +21,7 @@ public final class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
-
+        this.setLocationRelativeTo(null);
         Icon ic1 = setIcon("/imagenes/Ventas2.png", jButton1);
         jButton1.setIcon(ic1);
         Icon ic2 = setIcon("/imagenes/cliente.png", jButton3);
@@ -30,6 +30,7 @@ public final class MenuPrincipal extends javax.swing.JFrame {
         jButton2.setIcon(ic3);
         Icon ic4 = setIcon("/imagenes/ventaic.png", jButton5);
         jButton5.setIcon(ic4);
+
     }
 
     /**
@@ -102,7 +103,7 @@ public final class MenuPrincipal extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton4.setText("Modificar Venta");
-        jButton4.setToolTipText("Registrar Cliente");
+        jButton4.setToolTipText("Modificar Venta");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -110,7 +111,7 @@ public final class MenuPrincipal extends javax.swing.JFrame {
         });
 
         jButton6.setText("Modificar Cliente");
-        jButton6.setToolTipText("Registrar Cliente");
+        jButton6.setToolTipText("Modificar Cliente");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -137,7 +138,7 @@ public final class MenuPrincipal extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton5.setText("Consulta Ventas");
-        jButton5.setToolTipText("Registrar Cliente");
+        jButton5.setToolTipText("Consultar Ventas por fechas");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);

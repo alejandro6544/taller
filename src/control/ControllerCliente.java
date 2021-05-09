@@ -51,4 +51,32 @@ public class ControllerCliente {
         return objc;
     }
 
+    public boolean modificarCliente(Cliente objc) {
+        boolean t = false;
+        if (objc.getNombre2cliente() != null && objc.getApellido2cliente() != null) {
+            String sql = "UPDATE clientes SET nombre1cliente = '" + objc.getNombre1cliente() + "', nombre2cliente= '" + objc.getNombre2cliente() + "', "
+                    + "apellido1cliente=' " + objc.getApellido1cliente() + "', apellido2cliente='" + objc.getApellido2cliente() + "', "
+                    + "correoelectronico='" + objc.getCorreoelectronico() + "', telefonocliente='" + objc.getTelefonocliente() + "' "
+                    + "WHERE idcliente ='" + objc.getIdcliente() + "';";
+            BaseDatos objb = new BaseDatos();
+            t = objb.ejecutarSQL(sql);
+        } else {
+            if (objc.getCorreoelectronico() != null && objc.getTelefonocliente() != null) {
+                String sql = "UPDATE clientes SET nombre1cliente = '" + objc.getNombre1cliente() + "', "
+                        + "apellido1cliente=' " + objc.getApellido1cliente() + "', "
+                        + "correoelectronico='" + objc.getCorreoelectronico() + "', telefonocliente='" + objc.getTelefonocliente() + "' "
+                        + "WHERE idcliente ='" + objc.getIdcliente() + "';";
+                BaseDatos objb = new BaseDatos();
+                t = objb.ejecutarSQL(sql);
+            }else{
+                 String sql = "UPDATE clientes SET nombre1cliente = '" + objc.getNombre1cliente() + "', "
+                        + "apellido1cliente=' " + objc.getApellido1cliente() + "' "
+                        + "WHERE idcliente ='" + objc.getIdcliente() + "';";
+                BaseDatos objb = new BaseDatos();
+                t = objb.ejecutarSQL(sql);
+            }
+        }
+        return t;
+    }
+
 }

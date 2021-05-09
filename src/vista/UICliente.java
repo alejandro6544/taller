@@ -20,6 +20,7 @@ public class UICliente extends javax.swing.JFrame {
      */
     public UICliente() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -210,6 +211,7 @@ public class UICliente extends javax.swing.JFrame {
         String ape2 = jTextField5.getText();
         String correo = jTextField6.getText();
         String tel = jTextField7.getText();
+        
         if (!id.equals("") && !nom1.equals("") && !ape1.equals("")) {
             if (!nom2.equals("") && !ape2.equals("")) {
                 Cliente objc = new Cliente(id, nom1, nom2, ape1, ape2, correo, tel);

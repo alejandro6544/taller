@@ -52,6 +52,7 @@ public class ConsultarVentas extends javax.swing.JFrame {
 
     public ConsultarVentas() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     DefaultTableModel modelo;
 

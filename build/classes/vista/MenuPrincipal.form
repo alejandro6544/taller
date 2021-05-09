@@ -135,7 +135,7 @@
         <Component class="javax.swing.JButton" name="jButton4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar Venta"/>
-            <Property name="toolTipText" type="java.lang.String" value="Registrar Cliente"/>
+            <Property name="toolTipText" type="java.lang.String" value="Modificar Venta"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
@@ -144,7 +144,7 @@
         <Component class="javax.swing.JButton" name="jButton6">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar Cliente"/>
-            <Property name="toolTipText" type="java.lang.String" value="Registrar Cliente"/>
+            <Property name="toolTipText" type="java.lang.String" value="Modificar Cliente"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
@@ -184,7 +184,7 @@
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consulta Ventas"/>
-            <Property name="toolTipText" type="java.lang.String" value="Registrar Cliente"/>
+            <Property name="toolTipText" type="java.lang.String" value="Consultar Ventas por fechas"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>

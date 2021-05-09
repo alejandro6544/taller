@@ -26,6 +26,7 @@ public class UIVenta extends javax.swing.JFrame {
     LinkedList<ConceptoVentas> lcv;
     public UIVenta() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

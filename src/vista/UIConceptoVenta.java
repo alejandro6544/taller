@@ -20,6 +20,7 @@ public class UIConceptoVenta extends javax.swing.JFrame {
      */
     public UIConceptoVenta() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
