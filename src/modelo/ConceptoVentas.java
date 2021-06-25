@@ -126,4 +126,21 @@ public class ConceptoVentas {
         return cv;
     }
 
+    public boolean modificarConceptoV(String sql) {
+        boolean t=false;
+        BaseDatos objb=new BaseDatos();
+        if(objb.crearConexion()){
+            try {
+                Statement st=objb.getConexion().createStatement();
+                st.executeUpdate(sql);
+                t=true;
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        
+        return t;
+    }
+
 }

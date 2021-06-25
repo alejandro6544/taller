@@ -38,5 +38,18 @@ public class ControllerConceptoVenta {
         
         return objcv1;
     }
+
+    public boolean modificarConceptoV(int idcv, String newConcet) {
+        boolean t=false;
+        
+        String sql="UPDATE conceptosventas SET nombreConcepto='"+newConcet+"' WHERE idconcepto="+idcv+";";
+        
+        ConceptoVentas objcv=new ConceptoVentas();
+        t=objcv.modificarConceptoV(sql);
+
+        return t;
+        
+        
+    }
     
 }

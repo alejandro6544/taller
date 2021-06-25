@@ -30,6 +30,8 @@ public final class MenuPrincipal extends javax.swing.JFrame {
         jButton2.setIcon(ic3);
         Icon ic4 = setIcon("/imagenes/ventaic.png", jButton5);
         jButton5.setIcon(ic4);
+         Icon ic5 = setIcon("/imagenes/updatec.png", jButton6);
+        jButton6.setIcon(ic5);
 
     }
 
@@ -210,7 +212,9 @@ public final class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        // modificar clientes
+        UIModificarCliente objmc = new UIModificarCliente();
+        objmc.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**

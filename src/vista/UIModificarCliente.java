@@ -20,6 +20,7 @@ public class UIModificarCliente extends javax.swing.JFrame {
      */
     public UIModificarCliente() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
